@@ -1,8 +1,1 @@
-1. What is "run-time subtype" polymorphism?
-https://msdn.microsoft.com/en-us/library/ms173152.aspx
-
-2. Why would you use it?
-3. How is it implemented in different types of programming languages?
-4. What is the point of virtual functions?
-5. What is an interface?
-6. What is a delegate?
+Answer:
