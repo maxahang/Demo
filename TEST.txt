@@ -2,11 +2,88 @@
 https://msdn.microsoft.com/en-us/library/ms173152.aspx
 https://msdn.microsoft.com/zh-tw/library/ms173152.aspx
 
+*At run time, objects of a derived class may be treated as objects of a base class in places such as method parameters and collections or arrays. 
+When this occurs, the object's declared type is no longer identical to its run-time type.
+
+*Base classes may define and implement virtualmethods, and derived classes can override them, 
+which means they provide their own definition and implementation. 
+At run-time, when client code calls the method, the CLR looks up the run-time type of the object, 
+and invokes that override of the virtual method. 
+Thus in your source code you can call a method on a base class, 
+and cause a derived class's version of the method to be executed.
+
+
 2. Why would you use it?
+You can use polymorphism to define many other subtypes.
+The methods will be implemented in subclass, so there will have some advantages:
+a. The base class will not so fat.
+b. You can customize it in each sub class to meet your request.
+
+
 3. How is it implemented in different types of programming languages?
+It`s just like inherit class and you can use override function to implement it.
 
 4. What is the point of virtual functions?
+A virtual function is a member function that you expect to be redefined in derived classes.
+You can implement override function in derived classes to replace the virtual function in base class.
+
 
 5. What is an interface?
+    
+    interface IEquatable<T>
+    {
+        bool Equals(T obj);
+    }
+
+    public class Car : IEquatable<Car>
+    {
+        public string Make {get; set;}
+        public string Model { get; set; }
+        public string Year { get; set; }
+
+        // Implementation of IEquatable<T> interface
+        public bool Equals(Car car)
+        {
+            if (this.Make == car.Make &&
+                this.Model == car.Model &&
+                this.Year == car.Year)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+    }
+
+*An interface is like an abstract base class. Any class or struct that implements the interface must implement all its members.
+*An interface can't be instantiated directly. Its members are implemented by any class or struct that implements the interface.
+*Interfaces can contain events, indexers, methods, and properties.
+*Interfaces contain no implementation of methods.
+*A class or struct can implement multiple interfaces. A class can inherit a base class and also implement one or more interfaces.
+
 
 6. What is a delegate?
+
+Delegates are used to pass methods as arguments to other methods. 
+Event handlers are nothing more than methods that are invoked through delegates. 
+You create a custom method, and a class such as a windows control can call your method when a certain event occurs
+
+*Delegates are like C++ function pointers but are type safe.
+*Delegates allow methods to be passed as parameters.
+*Delegates can be used to define callback methods.
+*Delegates can be chained together; for example, multiple methods can be called on a single event.
+1. 委派可以將方法當成參數來進行傳遞
+2. 委派是事件的基礎(event)，可以利用委派來呼叫不同的事件，以便觸發其他控制項事件來完成互動性強大的應用程式。
+
+
+public delegate void OnTimeout(int sec);
+public event OnTimeout OnTimeoutEvent;
+
+app.OnTimeoutEvent += new OnTimeoutEvent(OnGetTimeoutEvent);
+
+public void OnGetTimeoutEvent(int sec)
+{
+...
+}
+
+
