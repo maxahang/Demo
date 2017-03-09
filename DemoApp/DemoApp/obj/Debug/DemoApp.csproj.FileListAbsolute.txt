@@ -1,0 +1,5 @@
+D:\GitHub\DemoApp\DemoApp\obj\Debug\DemoApp.csprojResolveAssemblyReference.cache
+D:\GitHub\DemoApp\DemoApp\bin\Debug\DemoApp.exe
+D:\GitHub\DemoApp\DemoApp\bin\Debug\DemoApp.pdb
+D:\GitHub\DemoApp\DemoApp\obj\Debug\DemoApp.exe
+D:\GitHub\DemoApp\DemoApp\obj\Debug\DemoApp.pdb
